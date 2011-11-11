@@ -1,0 +1,4 @@
+This code was created for Takeyoshi
+stprofile_rho was replaced by stprofile_Kuroshio
+
+to test Jinbo's initialization, replace stprofile_kuroshio with stprofile_deepfront_jbw.f90

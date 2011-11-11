@@ -1,0 +1,11 @@
+nbegin, nfinish, tstep, ngraph, frame_int, lastframe
+12000 12001  0.00432d0 500  100  0
+fnhhy (1=nh, 0= hy)
+1.0
+dx,	dy  
+1.d3,  1.d3
+
+
+time step for dx =125 m 
+nbegin, nfinish, tstep, ngraph
+6000 6001  0.000864d0, 50

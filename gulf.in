@@ -1,0 +1,71 @@
+nsteps, tstep, nouput-outcdf frame_int
+50  0.00432d0, 1000  1
+fnhhy (1=nh, 0= hy)
+1.0
+dx,	dy  
+1000.d0  1000.d0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+750.d0  750.d0
+
+1250d0 1250.d0
+
+
+250.d3,  250.d3
+
+
+125.d0 125.d0
+
+2.d3,  2.d3
+4.d3   4.d3
+3.125d3, 3.125d3
+
+time step for dx =125 m 
+nbegin, nfinish, tstep, ngraph
+6000 6001  0.000864d0, 50
+
+1 0.005d0  50
+18000  0.005d0
+12000  0.005d0
+1  0.0025d0
+12000  0.0025d0
+24000  0.01d0
+12000  0.02d0 dt=0.02 or 0.03 don't work
+
+6000  0.01296d0  200200  0.0648d0  40 - seems to work to 40 time step but req many h iters.
+200  0.2592d0  10 - doesn't work
+200  0.02592d0  100
+2000  0.02592d0  100
+
+dt=0.02592= 2592 seconds             for UL=1m/s, LEN=10^5m, T=10^5secs.
+	(2592 secs * 100 = 3days). 
+check call freq to animout before increasing time steps
+3000  0.03d0
+
+600  0.0005d0
+
+
+
+implicit rp
+
+600  0.0005d0
+explicit rp
+
+
+
