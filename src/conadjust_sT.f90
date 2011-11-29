@@ -3,10 +3,10 @@ subroutine conadjust(n)
   USE header
   !     T(i,j,k) is set to 0, so Treal is T0                              
   !     Performs convective adjustment                                    
-  implicit logical (a-z) 
+  implicit none
   integer i,j,k,n,it,step 
   double precision rh,rhtop,zt,zb,dz,zinv 
-  double precision dzupper 
+  double precision dzupper, potdens
   double precision sreal,Treal,rhreal,pbar 
   ! assume that evalrho has been called
   !                                                                       
@@ -32,6 +32,7 @@ subroutine conadjust(n)
               T(i,j,k,n)=(dzupper*T(i,j,k+1,n) +dz*T(i,j,k,n))*zinv 
               T(i,j,k+1,n)= T(i,j,k,n) 
               rho(i,j,k)= potdens(s(i,j,k,n),T(i,j,k,n)) 
+              rho(i,j,k)= real(potdens(30.34,30.45)) 
               rho(i,j,k+1) = rho(i,j,k)
               do it=1,ntr 
                  Tr(it,i,j,k,n)=(dzupper*Tr(it,i,j,k+1,n)             &
