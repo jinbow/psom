@@ -1,0 +1,8 @@
+*.o
+*.mod
+*.pyc
+*.log
+nh
+output/*.bin
+output/*.nc
+output/*.cdf
