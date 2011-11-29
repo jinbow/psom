@@ -22,7 +22,7 @@
 !      double precision drpx(NI,NJ,NK),drpy(NI,NJ,NK),                   &
 !     &     grpifc(0:NI,NJ,NK),grpjfc(NI,0:NJ,NK)                        
 !      common/rpgrads/drpx,drpy,grpifc,grpjfc 
-      if (rect.eq.(.false.)) then 
+      if (rect.eqv.(.false.)) then 
 !        need to modify grpifc,grpjfc to contain cross diff terms       
          write(6,*) 'modify grpifc,grpjfc' 
          stop 
