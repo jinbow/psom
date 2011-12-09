@@ -1,27 +1,30 @@
-double precision FUNCTION  potdens(s,T)
-  !-----------------------------------------------------------------------
-  !     computes the POTENTIAL density from the equation of state         
-  !     Uses the 1 atmos. International eqn of state for sea water (1980) 
-  !     and the high press. international eqn of state for sea water (19
-  !     (Unesco technical Papers in Marine Science 38)                    
-  !                                                                       
-  !     s is the practical salinity ie. (mass of solute/mass of water)*10^
-  !     T is temp in  deg C, p is pressure in bar                         
-  !     r0= rho0(s,T,p=0), rw= density of standard mean ocean water       
-  !                                                                       
+FUNCTION  potdens(s,T)
+  !--------------------------------------------------------------------
+  !     computes the POTENTIAL density from the equation of state
+  !     Uses the 1 atmos. International eqn of state for sea water 
+  !     (1980) and the high press. international eqn of state for 
+  !     sea water (19 (Unesco technical Papers in Marine Science 38)
+  !
+  !     s is the practical salinity (mass of solute/mass of water)*10^
+  !     T is temp in  deg C, p is pressure in bar
+  !     r0= rho0(s,T,p=0), rw= density of standard mean ocean water    
+  !
+
       implicit none
+      double precision :: potdens
       double precision :: s,T,p,rho0,r0,rw,Aw,Bw,Kw,a,b,K0,K,s15
       !                                                                       
       s15= s*dsqrt(s) 
-      !     One atmos. International eqn of state for sea water (1980)        
-      !     ----------------------------------------------------------        
-      rw= 999.842594d0 +  6.793952d-2*T - 9.095290d-3*T**2 +            &
-           1.001685d-4*t**3 -1.120083d-6*T**4 +                         &
-           6.56332d-9*T**5                                               
-      potdens= rw + (8.24493d-1 - 4.0899d-3*T + 7.6438d-5*T**2          &
-           -8.2467d-7*T**3 + 5.3875d-9*T**4 )*s +                       &
-           (-5.72466d-3 + 1.0227d-4*T -1.6546d-6*T**2)*s15 +            &
-           4.8314d-4*s*s                                                 
+      !     One atmos. International eqn of state for sea water (1980) 
+      !     ----------------------------------------------------------  
+      rw= 999.842594d0 +  6.793952d-2*T - 9.095290d-3*T**2 +    &
+           1.001685d-4*t**3 -1.120083d-6*T**4 +                 &
+           6.56332d-9*T**5
+
+      potdens= rw + (8.24493d-1 - 4.0899d-3*T + 7.6438d-5*T**2  &
+           -8.2467d-7*T**3 + 5.3875d-9*T**4 )*s +               &
+           (-5.72466d-3 + 1.0227d-4*T -1.6546d-6*T**2)*s15 +    &
+           4.8314d-4*s*s
 !                                                                       
 !     High press. international eqn of state for sea water (1980)       
 !     ----------------------------------------------------------        
@@ -41,5 +44,4 @@ double precision FUNCTION  potdens(s,T)
 !-c                                                                     
 !-      rho0= r0/(1.d0-p/K)                                             
 !-c     ------------------                                              
-      return 
     end FUNCTION potdens

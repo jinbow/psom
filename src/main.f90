@@ -40,9 +40,12 @@ program main
      &     ctrdiv,hsum,hmean                                            
       real dtime, tarray(2), tim 
       CHARACTER(len=10) :: stepchar
+      CHARACTER(len=25) :: casename
+
+      casename = CASE_NAME
 
       open(unit=91,file='energy.out') 
-      open(unit=31, file='gulf.in',status='old') 
+      open(unit=31, file='cases/'//trim(casename)//'.in',status='old') 
       read(31,*) 
       read(31,*) nsteps,dtf,ngraph,frame_int 
       read(31,*) 
